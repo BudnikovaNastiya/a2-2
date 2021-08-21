@@ -38,7 +38,7 @@ public class DeliveryCardTest {
         $("[data-test-id=agreement] .checkbox__box").click();
         $("button.button").click();
         $("[data-test-id='name'].input_invalid .input__sub").shouldBe(visible)
-                .shouldHave(exactText("Поле обязательно для заполнени"));
+                .shouldHave(exactText("Поле обязательно для заполнения"));
     }
 
     @Test
