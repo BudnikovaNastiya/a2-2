@@ -1,5 +1,6 @@
 package ru.netology.test;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
@@ -12,10 +13,14 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class DeliveryCardTest {
 
+    @BeforeEach
+    public void setUp() {
+        open("http://localhost:9999");
+    }
+
     @Test
     void shouldSendDataForDelivery() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -29,7 +34,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestNoName() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -44,7 +48,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestNoPhone() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -58,7 +61,6 @@ public class DeliveryCardTest {
 
     @Test
     void shouldTestDateFieldTestDateNo() {
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $("[name='name']").sendKeys("Будникова Анастасия");
@@ -72,7 +74,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestCityNo() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -87,7 +88,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestTheCity() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Сарато");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -102,7 +102,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestTheData() {
         String date = LocalDate.now().plusDays(-1).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -117,7 +116,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestAnInvalidNumber() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -133,7 +131,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestAnNameIsIncorrect() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -148,7 +145,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestNotAgreement() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
@@ -162,7 +158,6 @@ public class DeliveryCardTest {
     @Test
     void shouldTestForPlusAnInvalidNumberPluss() {
         String date = LocalDate.now().plusDays(4).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
-        open("http://localhost:9999/");
         $("[placeholder='Город']").setValue("Саратов");
         $(".calendar-input__custom-control input").doubleClick().sendKeys(Keys.BACK_SPACE);
         $(".calendar-input__custom-control input").setValue(date);
